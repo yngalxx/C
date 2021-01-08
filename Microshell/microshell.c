@@ -29,7 +29,7 @@ int main(int argc, char * argv[]) {
         char flag = 0;
         // print user input
         if (strstr(token, "echo") != NULL) {
-            // create child process (sth goes wrong, it wotrks but, I have double printf("[%s]> ", path); only in next line and can't get rid of it)
+            // create child process (sth goes wrong, it works but, I have double printf("[%s]> ", path); only in next line and can't get rid of it)
             /* fork(); */
             // print all arguments as a string like echo in real batch
             while(token != NULL ) {
@@ -57,9 +57,8 @@ int main(int argc, char * argv[]) {
                 struct dirent *dir;
                 // take directory from current path and open it
                 d = opendir(path);
-                // without hidden files
                 if (strstr(token, "ls") != NULL){
-                    // print every file inside directory (with hidden files)
+                    // print every file inside directory (without hidden files)
                     if (d) {
                         while ((dir = readdir(d)) != NULL) {
                             if (*dir->d_name != '.') {
